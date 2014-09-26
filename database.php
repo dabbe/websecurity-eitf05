@@ -77,5 +77,25 @@ class Database {
 		}
 		return $rows;
 	}
+
+
+	private function userExists($email) {
+		$sql = "select email from users where email = ".$email);
+		$results = $this->executeQuery($sql);
+		if (count($results)>=1) {
+			return true;
+		}
+		return false;
+	}
+
+	public function createUser($email,$password) {
+		if ($this->userExists($email)) {
+			return false;
+		}
+		$hash = sha1($password);
+		$sql = "insert into users (email,password) values ('".$email."','".$hash."')");
+		$results = $this->executeQuery($sql);
+		return $results;
+	}
 }
 ?>
