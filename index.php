@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+$username = $_SESSION['username'];
+?>
+
 <HTML>
    <head>
       <title>ArtStore Deluxe 2014</title>
@@ -26,7 +32,7 @@
          	font-size: 110;
          	color: #ffffff;
            	margin: 0px;
-           	
+
          	padding-top: 50px;
          	vertical-align: middle;
          	padding-bottom: 50px;
@@ -95,6 +101,12 @@
       	ArtShop Deluxe
       </div>
       <div class="wrapper">
+      	<?php
+      		if (isset($username)) {
+      			echo "<h1>Hej ".$username."!</h1>";
+      		}else{
+      			echo '
+      	
          <form id="login-form" action="test.php" method="post">
             <fieldset class="c">
                <label for="username">Username: </label>
@@ -107,6 +119,9 @@
                </div>
             </fieldset>
          </form>
+         ';
+         	}
+         ?>
          <div class="entry">
             <figure>
                <img src="gallerypic1.jpg" alt="Helianthus" />
