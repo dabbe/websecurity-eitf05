@@ -17,7 +17,7 @@ $result = $stmt->fetchAll();
 <body>
 <h2>PDO Connection Test</h2>
 
-Now is (fetched from puccini): 
+Now is <?php echo gethostname();?>: 
 <?php 
     print $result[0][0];
 	print ".";
