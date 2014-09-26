@@ -80,7 +80,7 @@ class Database {
 
 
 	private function userExists($email) {
-		$sql = "select email from users where email = ".$email);
+		$sql = "select email from users where email = ".$email;
 		$results = $this->executeQuery($sql);
 		if (count($results)>=1) {
 			return true;
