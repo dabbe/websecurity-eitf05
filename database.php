@@ -100,7 +100,7 @@ class Database {
 
 	public function isValidLogin($username,$password) {
 		$hash = sha1($password);
-		$sql = "select email,password from users where email = '".$username."' and password '".$hash."'";
+		$sql = "select email,password from users where email = '".$username."' and password = '".$hash."'";
 		$results = $this->executeQuery($sql);
 		if (count($results)==1) {
 			return true;
