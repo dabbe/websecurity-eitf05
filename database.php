@@ -80,8 +80,8 @@ class Database {
 
 
 	private function userExists($email) {
-		$sql = "select email from users where email = ".$email;
-		$results = $this->executeQuery($sql);
+		$sql = "select email from users where email = :email";
+		$results = $this->executeQuery($sql, ["email" => $email]);
 		if (count($results)>=1) {
 			return true;
 		}
@@ -93,15 +93,15 @@ class Database {
 			return false;
 		}
 		$hash = sha1($password);
-		$sql = "insert into users (email,password) values ('".$email."','".$hash."')";
-		$results = $this->executeQuery($sql);
+		$sql = "insert into users (email, password) values (:email, :hash)";
+		$results = $this->executeQuery($sql, ["email" => $email, "hash" => $hash]);
 		return $results;
 	}
 
 	public function isValidLogin($username,$password) {
 		$hash = sha1($password);
-		$sql = "select email,password from users where email = '".$username."' and password = '".$hash."'";
-		$results = $this->executeQuery($sql);
+		$sql = "select email,password from users where email = :username and password = :hash";
+		$results = $this->executeQuery($sql, ["username" => $username, "hash" => $hash]);
 		if (count($results)==1) {
 			return true;
 		}
