@@ -6,7 +6,7 @@ $username = $_SESSION['username'];
 
 <HTML>
    <head>
-      <title>ArtStore Deluxe 2014</title>
+      <title>ArtShop Deluxe 2016</title>
       <style type="text/css">
          * {
          font-family: Arial, Verdana, sans-serif;
@@ -30,7 +30,7 @@ $username = $_SESSION['username'];
          .top{
          	text-align: center;
          	font-size: 110;
-         	color: #ffffff;
+         	 -webkit-text-stroke: 2px white;
            	margin: 0px;
 
          	padding-top: 50px;
@@ -90,9 +90,8 @@ $username = $_SESSION['username'];
          	margin-top: 35px;
          }
          body {
-    		background-image: url("wp1.jpg");
-    		background-size: contain;
-    		background-position: fixed;
+    		background-image: url("bg.png");
+
 		}
       </style>
    </head>
@@ -103,7 +102,7 @@ $username = $_SESSION['username'];
       <div class="wrapper">
       	<?php
       		if (isset($username)) {
-      			echo "<h1>Hej ".$username."!</h1>";
+      			echo "<h1>V&#xE4lkommen ".$username."!</h1>";
       		}else{
       			echo '
       	
@@ -124,37 +123,37 @@ $username = $_SESSION['username'];
          ?>
          <div class="entry">
             <figure>
-               <img src="gallerypic1.jpg" alt="Helianthus" />
+               <a href="onclick.php?id=1"><img src="gallerypic1.jpg" alt="Helianthus" /></a>
                <figcaption>Helianthus</figcaption>
             </figure>
          </div>
          <div class="entry">
             <figure>
-               <img src="gallerypic2.jpg" alt="Passiflora" />
+               <a href="onclick.php?id=2"><img src="gallerypic2.jpg" alt="Passiflora" /></a>
                <figcaption>Passiflora</figcaption>
             </figure>
          </div>
          <div class="entry">
             <figure>
-               <img src="gallerypic3.jpg" alt="Nyctocalos" />
+               <a href="onclick.php?id=3"><img src="gallerypic3.jpg" alt="Nyctocalos" /></a>
                <figcaption>Nyctocalos</figcaption>
             </figure>
          </div>
          <div class="entry">
             <figure>
-               <img src="gallerypic4.jpg" alt="Polianthes" />
+               <a href="onclick.php?id=4"><img src="gallerypic4.jpg" alt="Polianthes" /></a>
                <figcaption>Polianthes</figcaption>
             </figure>
          </div>
          <div class="entry">
             <figure>
-               <img src="gallerypic5.jpg" alt="Ficus" />
+               <a href="onclick.php?id=5"><img src="gallerypic5.jpg" alt="Ficus" /></a>
                <figcaption>Ficus</figcaption>
             </figure>
          </div>
          <div class="entry">
             <figure>
-               <img src="gallerypic6.jpg" alt="Dendrobium" />
+               <a href="onclick.php?id=6"><img src="gallerypic6.jpg" alt="Dendrobium" /></a>
                <figcaption>Dendrobium</figcaption>
             </figure>
          </div>
