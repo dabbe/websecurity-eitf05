@@ -1,12 +1,22 @@
 <?php
 session_start();
-/*require_once('database.php');
+require_once('database.php');
 
 $db = new Database();
-
 $db->openConnection();
 
-$val = $db->createUser($username,$password);
+if (strcmp($_POST['btn-login'],"Login")==0) {
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+
+	echo "Trying to login using credentials: ".$username."/".$password;
+	$login = $db->isValidLogin($username,$password);
+	echo "Results: ".$login;
+}
+
+
+
+//$val = $db->createUser($username,$password);
 
 $db->closeConnection();
 	
