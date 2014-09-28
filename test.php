@@ -12,6 +12,13 @@ if (strcmp($_POST['btn-login'],"Login")==0) {
 	echo "Trying to login using credentials: ".$username."/".$password;
 	$login = $db->isValidLogin($username,$password);
 	echo "Results: ".$login;
+
+	if ($login) {
+		$_SESSION['username'] = $username;
+	}
+	$db->closeConnection();
+	Header("Location: index.php");
+	die();
 }
 
 
@@ -19,10 +26,9 @@ if (strcmp($_POST['btn-login'],"Login")==0) {
 //$val = $db->createUser($username,$password);
 
 $db->closeConnection();
-	
-	echo($_POST["username"]);
-	echo($val);
-	echo("World");*/
+//	echo($_POST["username"]);
+//	echo($val);
+//	echo("World");
 echo "User: " . $_POST['username'];
 echo "<br><br>";
 $_SESSION['username'] = $_POST['username'];
