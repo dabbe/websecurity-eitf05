@@ -91,8 +91,11 @@ $username = $_SESSION['username'];
          }
          body {
     		background-image: url("bg.png");
-
-		}
+         }
+         .shopping_cart {
+            padding: 20px;
+            color: #CCCCCC;
+         }
       </style>
    </head>
    <body>
@@ -157,6 +160,31 @@ $username = $_SESSION['username'];
                <figcaption>Dendrobium</figcaption>
             </figure>
          </div>
+      </div>
+
+      <div class="shopping_cart">
+        <?php
+         require_once("shoppingcart.php");
+
+         $shopping_cart = new Shopping_Cart();
+         $list = $shopping_cart->getList();
+         if(count($list) > 0){
+            echo "<ul>";
+            foreach ($list as &$value) {
+               echo "<li>";
+               echo "Produkt-id:" .$value;
+               echo "</li>";
+            }
+         echo "</ul>";
+        
+            echo '
+            <form id="checkout-form" action="checkout.php" method="post">
+               <input type="submit" value="Checkout" id="checkout" class="button" name="btn-checkout">
+               </div>
+            </form>
+            '; 
+         }
+        ?>
       </div>
    </body>
 </HTML>
