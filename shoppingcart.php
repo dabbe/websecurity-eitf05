@@ -5,7 +5,7 @@ class Shopping_Cart{
 	private $shopping_cart = [];
 
 	public function __construct(){
-		if(!isset($_COOKIE['shopping_cart']) || !is_array($_COOKIE['shopping_cart'])){
+		if(!isset($_COOKIE['shopping_cart'])){
 			$this->saveCookie();
 		}
 		$this->shopping_cart = $this->loadCookie();

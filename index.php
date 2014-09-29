@@ -177,7 +177,7 @@ $username = $_SESSION['username'];
             }
          echo "</ul>";
         
-            echo '
+         echo '
             <form id="checkout-form" action="checkout.php" method="post">
                <input type="submit" value="Checkout" id="checkout" class="button" name="btn-checkout">
                </div>
