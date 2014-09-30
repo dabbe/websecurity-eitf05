@@ -17,7 +17,7 @@ if (strcmp($_POST['btn-login'],"Login")==0) {
 		$_SESSION['username'] = $username;
 	}
 	$db->closeConnection();
-	Header("Location: index.php");
+	//Header("Location: index.php");
 	die();
 }
 
