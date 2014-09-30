@@ -24,7 +24,7 @@ $list = $shopping_cart->getList();
      	}
      	?>
      	<form id="buy-form" action="buy.php" method="post">
-               <input type="submit" value="Buy" id="buy" class="button" name="btn-buy">
+               <input type="submit" value="Buy" id="buy" name="btn-buy">
         </form>
      </div>
 	</body>
