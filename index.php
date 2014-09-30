@@ -21,20 +21,19 @@ $shopping_cart = new Shopping_Cart();
                echo '<br><br><a href="logout.php">Logout</a><br>';
       		}else{
       			echo '
-      	
-         <form id="login-form" action="test.php" method="post">
-            <fieldset class="c">
-               <label for="username">Username: </label>
-               <input type="text" name="username">
-               <label for="password">Password: </label>
-               <input type="password" name="password">
-               <div align="right">
-                  <input type="submit" tabindex="2" value="Register" id="register" class="button" name="btn-register">
-                  <input type="submit" tabindex="1" value="Login" id="login" class="button" name="btn-login">
-               </div>
-            </fieldset>
-         </form>
-         ';
+      	      <form id="login-form" action="test.php" method="post">
+                  <fieldset class="c">
+                     <label for="username">Username: </label>
+                     <input type="text" name="username">
+                     <label for="password">Password: </label>
+                     <input type="password" name="password">
+                     <div align="right">
+                        <input type="submit" tabindex="2" value="Register" id="register" class="button" name="btn-register">
+                        <input type="submit" tabindex="1" value="Login" id="login" class="button" name="btn-login">
+                     </div>
+                  </fieldset>
+               </form>
+               ';
          	}
          ?>
          <div class="entry">
