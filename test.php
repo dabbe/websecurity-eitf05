@@ -6,8 +6,8 @@ $db = new Database();
 $db->openConnection();
 
 if (strcmp($_POST['btn-login'],"Login")==0) {
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$username = $_REQUEST['username'];
+	$password = $_REQUEST['password'];
 
 	echo "Trying to login using credentials: ".$username."/".$password;
 	$login = $db->isValidLogin($username,$password);
