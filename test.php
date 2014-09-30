@@ -14,7 +14,7 @@ if (strcmp($_REQUEST['btn-login'],"Login")==0) {
 	echo "Results: ".$login;
 
 	if ($login) {
-		$_SESSION['username'] = $login['email'];
+		$_SESSION['username'] = $login[0]['email'];
 	}
 	$db->closeConnection();
 	Header("Location: index.php");
