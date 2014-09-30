@@ -23,6 +23,10 @@ class Shopping_Cart{
 		return json_decode($_COOKIE['shopping_cart'], true);
 	}
 
+	public function emptyCart(){
+		setcookie('shopping_cart', json_encode([]), time() + 3600);
+	}
+
 	public function getList(){
 		return $this->shopping_cart;
 	}

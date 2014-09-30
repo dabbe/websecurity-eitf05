@@ -1,6 +1,8 @@
 <?php
 session_start();
 $username = $_SESSION['username'];
+require_once("shoppingcart.php");
+$shopping_cart = new Shopping_Cart();
 ?>
 
 <HTML>
@@ -164,9 +166,7 @@ $username = $_SESSION['username'];
 
       <div class="shopping_cart">
         <?php
-         require_once("shoppingcart.php");
 
-         $shopping_cart = new Shopping_Cart();
          $list = $shopping_cart->getList();
          if(count($list) > 0){
             echo "<ul>";
