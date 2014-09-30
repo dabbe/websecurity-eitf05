@@ -103,7 +103,7 @@ class Database {
 		$sql = "select email,password from users where email = '".$username."' and password = '".$hash."'";
 		$results = $this->executeQuery($sql);
 		if (count($results)==1) {
-			return true;
+			return $results;
 		}
 		return false;
 	}
