@@ -94,7 +94,7 @@ class Database {
 		}
 		$hash = sha1($password);
 		$sql = "insert into users (email,password) values ('".$email."','".$hash."')";
-		$results = $this->executeQuery($sql);
+		$results = $this->executeUpdate($sql);
 		return $results;
 	}
 
