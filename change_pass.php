@@ -9,6 +9,19 @@ if (!isset($username)) {
 	die();
 }
 
+?>
+<HTML>
+   <head>
+      <title>ArtShop Deluxe 2016</title>
+      <link rel="stylesheet" href="style.css"/>
+   </head>
+   <body>
+      <div class="top">
+      	ArtShop Deluxe
+      </div>
+      <div class="wrapper">
+<?php
+
 if (isset($_REQUEST['btn-change'])) {
 	$new = $_REQUEST['new-password'];
 	$new_repeat = $_REQUEST['repeat-password'];
@@ -18,7 +31,7 @@ if (isset($_REQUEST['btn-change'])) {
 		$db->openConnection();
 		$rval = $db->changePass($username,$new);
 		$db->closeConnection();
-		$msg = "Password for " . $username . " is changed! (Status=" . $rval . ")";
+		$msg = "Password for " . $username . " is changed!";
 	}else{
 		$msg = "Passwords do not match!";
 	}
@@ -32,10 +45,24 @@ if (isset($_REQUEST['btn-change'])) {
 echo "<h1>".$msg."</h1>";
 ?>
 
-<form action="change_pass.php" method="post">
-	New password: <input type="password" name="new-password"><br>
-	Repeat: <input type="password" name="repeat-password"><br>
-	<input type="submit" name="btn-change" value="Change">
+<form id="form-change-password" action="change_pass.php" method="post">
+	<label>
+		<span>New password</span>
+		<input type="password" name="new-password">
+	</label>
+	<label>
+		<span>Repeat</span>
+		<input type="password" name="repeat-password">
+	</label>
+	<label>
+		<span>&nbsp;</span>
+		<input type="submit" name="btn-change" value="Change">
+	</label>
 </form>
 <br>
 <a href="index.php">Back</a>
+
+
+</div>
+</body>
+</HTML>

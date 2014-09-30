@@ -89,3 +89,26 @@
             padding: 20px;
             color: #CCCCCC;
          }
+
+
+
+         form#form-change-password {
+            width:50%;
+            margin:0 auto 0 auto;
+         }
+
+         form#form-change-password label {
+            display:block;
+            width:100%;
+         }
+
+         form#form-change-password label>span {
+            display:inline-block;
+            width:30%;
+            text-align:left;
+         }
+
+         form#form-change-password label>input {
+            display:inline-block;
+            width:60%;
+         }
