@@ -107,5 +107,17 @@ class Database {
 		}
 		return false;
 	}
+
+	public function changePass($user,$pass) {
+		$hash = $this->hash($pass);
+		$sql = "update users set password = ? where email = ?";
+		$results = $this->executeUpdate($sql,array($hash,$user));
+		return $results;
+	}
+
+	private function hash($pt) {
+		$ct = sha1($pt);
+		return $ct;
+	}
 }
 ?>
