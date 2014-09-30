@@ -55,7 +55,7 @@ $username = $_SESSION['username'];
          	float: left;
          	margin: 10px;
          	height: 198px;
-         	background-image: url("images/shadow.png");
+         	/*background-image: url("images/shadow.png");*/
          	background-repeat: no-repeat;
          	background-position: bottom;}
          .entry:after {
