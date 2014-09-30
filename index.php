@@ -18,7 +18,8 @@ $shopping_cart = new Shopping_Cart();
       	<?php
       		if (isset($username)) {
       			echo "<h1>V&#xE4lkommen ".$username."!</h1>";
-               echo '<br><br><a href="logout.php">Logout</a><br>';
+               echo '<br><br><a href="paymentinfo.php">Edit payment information</a>';
+               echo '<br><a href="logout.php">Logout</a><br>';
       		}else{
       			echo '
       	      <form id="login-form" action="test.php" method="post">
