@@ -80,7 +80,7 @@ class Database {
 
 
 	private function userExists($email) {
-		$sql = "select email from users where email = ".$email;
+		$sql = "select email from users where email = '".$email."'";
 		$results = $this->executeQuery($sql);
 		if (count($results)>=1) {
 			return true;
@@ -94,7 +94,7 @@ class Database {
 		}
 		$hash = sha1($password);
 		$sql = "insert into users (email,password) values ('".$email."','".$hash."')";
-		$results = $this->executeQuery($sql);
+		$results = $this->executeUpdate($sql);
 		return $results;
 	}
 
