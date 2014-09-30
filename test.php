@@ -5,16 +5,16 @@ require_once('database.php');
 $db = new Database();
 $db->openConnection();
 
-if (strcmp($_POST['btn-login'],"Login")==0) {
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+if (strcmp($_REQUEST['btn-login'],"Login")==0) {
+	$username = $_REQUEST['username'];
+	$password = $_REQUEST['password'];
 
 	echo "Trying to login using credentials: ".$username."/".$password;
 	$login = $db->isValidLogin($username,$password);
 	echo "Results: ".$login;
 
 	if ($login) {
-		$_SESSION['username'] = $username;
+		$_SESSION['username'] = $login[0]['email'];
 	}
 	$db->closeConnection();
 	Header("Location: index.php");
