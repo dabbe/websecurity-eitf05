@@ -25,6 +25,9 @@ if (strcmp($_POST['btn-register'],"Register")==0) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	echo "Creating user: ".$username;
+
+	var_dump($_POST);
+
 	$results = $db->createUser($username,$password);
 	if ($results) {
 		$message = "User ".$username." is created";
