@@ -5,7 +5,7 @@ require_once('database.php');
 $db = new Database();
 $db->openConnection();
 
-if (strcmp($_POST['btn-login'],"Login")==0) {
+if (strcmp($_REQUEST['btn-login'],"Login")==0) {
 	$username = $_REQUEST['username'];
 	$password = $_REQUEST['password'];
 
