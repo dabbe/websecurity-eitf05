@@ -21,6 +21,21 @@ if (strcmp($_POST['btn-login'],"Login")==0) {
 	die();
 }
 
+if (strcmp($_POST['btn-register'],"Register")==0) {
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	echo "Creating user: ".$username;
+	$results = $db->createUser($username,$password);
+	if ($results) {
+		$message = "User ".$username." is created";
+	}else{
+		$message = "That user already exists, pleae choose another username";
+	}
+	$db->closeConnection();
+	Header("Location: index.php?m=".$message);
+	die();
+}
+
 
 
 //$val = $db->createUser($username,$password);

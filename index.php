@@ -57,7 +57,7 @@ $shopping_cart = new Shopping_Cart();
          	float: left;
          	margin: 10px;
          	height: 198px;
-         	background-image: url("images/shadow.png");
+         	/*background-image: url("images/shadow.png");*/
          	background-repeat: no-repeat;
          	background-position: bottom;}
          .entry:after {
@@ -82,7 +82,7 @@ $shopping_cart = new Shopping_Cart();
          	margin:0 auto 0 auto;
          }
          figcaption {
-         	background-image: url("images/icon.png");
+         	/*background-image: url("images/icon.png");*/
          	padding-left: 20px;
          	background-repeat: no-repeat;}
          fieldset.c {
