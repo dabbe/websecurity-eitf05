@@ -105,6 +105,7 @@ $username = $_SESSION['username'];
       	<?php
       		if (isset($username)) {
       			echo "<h1>V&#xE4lkommen ".$username."!</h1>";
+               echo '<br><br><a href="logout.php">Logout</a><br>';
       		}else{
       			echo '
       	
