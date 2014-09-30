@@ -116,8 +116,8 @@ $username = $_SESSION['username'];
                <label for="password">Password: </label>
                <input type="password" name="password">
                <div align="right">
-                  <input type="submit" value="Register" id="register" class="button" name="btn-register">
-                  <input type="submit" value="Login" id="login" class="button" name="btn-login">
+                  <input type="submit" tabindex="2" value="Register" id="register" class="button" name="btn-register">
+                  <input type="submit" tabindex="1" value="Login" id="login" class="button" name="btn-login">
                </div>
             </fieldset>
          </form>
