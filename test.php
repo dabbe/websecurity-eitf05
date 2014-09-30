@@ -31,7 +31,7 @@ $db->closeConnection();
 //	echo("World");
 echo "User: " . $_POST['username'];
 echo "<br><br>";
-$_SESSION['username'] = $_POST['username'];
+//$_SESSION['username'] = $_POST['username'];
 print_r($_POST);
 echo "<hr>";
 print_r($_SESSION);
