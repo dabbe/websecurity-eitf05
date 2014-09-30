@@ -19,6 +19,7 @@ $shopping_cart = new Shopping_Cart();
       		if (isset($username)) {
       			echo "<h1>V&#xE4lkommen ".$username."!</h1>";
                echo '<br><br><a href="paymentinfo.php">Edit payment information</a>';
+               echo '<br><br><a href="change_password.php">Change account password</a>';
                echo '<br><a href="logout.php">Logout</a><br>';
       		}else{
       			echo '
