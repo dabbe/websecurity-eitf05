@@ -80,7 +80,7 @@ $username = $_SESSION['username'];
          	margin:0 auto 0 auto;
          }
          figcaption {
-         	background-image: url("images/icon.png");
+         	/*background-image: url("images/icon.png");*/
          	padding-left: 20px;
          	background-repeat: no-repeat;}
          fieldset.c {
