@@ -4,6 +4,7 @@ define('MYSQL_HOST','localhost');
 define('MYSQL_USER','eitf05');
 define('MYSQL_PASS','eitfpass');
 define('MYSQL_DBNA','eitf05');
+define('DEFAULT_HASH_ALG','sha256');
 
 class Database {
 	private $host;
@@ -92,14 +93,14 @@ class Database {
 		if ($this->userExists($email)) {
 			return false;
 		}
-		$hash = sha1($password);
+		$hash = $this->hash($password);
 		$sql = "insert into users (email,password) values ('".$email."','".$hash."')";
 		$results = $this->executeUpdate($sql);
 		return $results;
 	}
 
 	public function isValidLogin($username,$password) {
-		$hash = sha1($password);
+		$hash = $this->hash($password);
 		$sql = "select email,password from users where email = '".$username."' and password = '".$hash."'";
 		$results = $this->executeQuery($sql);
 		if (count($results)==1) {
@@ -116,7 +117,7 @@ class Database {
 	}
 
 	private function hash($pt) {
-		$ct = sha1($pt);
+		$ct = hash(DEFAULT_HASH_ALG,$pt);
 		return $ct;
 	}
 }
