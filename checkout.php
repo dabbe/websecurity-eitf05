@@ -1,4 +1,9 @@
 <?php
+if (!isset($_SESSION['username'])) {
+	Header("Location: index.php");
+	die();
+}
+
 require_once("shoppingcart.php");
 $shopping_cart = new Shopping_Cart();
 $list = $shopping_cart->getList();
