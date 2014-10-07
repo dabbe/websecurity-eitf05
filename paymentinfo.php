@@ -1,5 +1,6 @@
 <?php
-if (!isset($_SESSION['username'])) {
+$user = $_SESSION['username'];
+if (!isset($user)) {
 	Header("Location: index.php");
 	die();
 }
