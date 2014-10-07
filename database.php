@@ -90,12 +90,9 @@ class Database {
 	}
 
 	public function insertPaymentInfo($email, $cardnbr, $cvc, $expiration){
-		if(count($this->getPaymentInfo($email)) == 0){
-			$sql = "insert into payment_info (email, credit_card_number,credit_card_cvc, credit_card_expiration) values ('".$email. "','".$cardnbr."','".$cvc."','".$expiration."')";
-		} else{
-			$sql = "update payment_info set email='".$email."', credit_card_number='".$cardnbr."', credit_card_cvc='".$cvc."', credit_card_expiration='".$expiration."'";
-		}
-		$this->executeUpdate($sql);	
+		$sql = "insert into payment_info (email,credit_card_number, credit_card_cvc, credit_card_expiration) values(?,?,?,?) on duplicate key update credit_card_number = ?, credit_card_cvc = ?, credit_card_expiration = ?";
+		$results = $this->executeUpdate($sql,array($email,$cardnbr,$cvc,$expiration,$cardnbr,$cvc,$expiration));
+		return $results;
 	}
 
 	public function getPaymentInfo($email){

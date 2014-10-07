@@ -5,6 +5,22 @@ if (!isset($user)) {
 	Header("Location: index.php");
 	die();
 }
+require_once("database.php");
+$db = new Database();
+$db->openConnection();
+$results = $db->getPaymentInfo($user);
+if(count($results) == 0){
+    Header("Location: paymentinfo.php");
+    die();
+}
+$address = $db->getAddress($user);
+
+$street = $address['street'];
+$zipcode = $address['zipcode'];
+$town = $address['town'];
+if (strlen($street)==0 || strlen($zipcode)==0 || strlen($town)==0) {
+    Header("Location: index.php");
+}
 
 require_once("shoppingcart.php");
 $shopping_cart = new Shopping_Cart();
