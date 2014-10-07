@@ -39,7 +39,7 @@ $expiration = date('Y-m-d', strtotime($row['credit_card_expiration']))
             <br>
             <label for="expiration">Expiration Date: </label>
             <br>
-            <input type="text" id="expiration"  name="input-expiration" value=<?php echo '"' .$expiration. '"'; ?>>
+            <input type="date" id="expiration"  name="input-expiration" value=<?php echo '"' .$expiration. '"'; ?>>
             <br>
             <input type="submit" id="submitpaymentinfo" value="Submit payment information">
         </form>

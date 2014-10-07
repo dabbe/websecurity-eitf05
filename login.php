@@ -9,9 +9,9 @@ if (strcmp($_REQUEST['btn-login'],"Login")==0) {
 	$username = $_REQUEST['username'];
 	$password = $_REQUEST['password'];
 
-	echo "Trying to login using credentials: ".$username."/".$password;
+	//echo "Trying to login using credentials: ".$username."/".$password;
 	$login = $db->isValidLogin($username,$password);
-	echo "Results: ".$login;
+	//echo "Results: ".$login;
 
 	if ($login) {
 		$_SESSION['username'] = $login[0]['email'];
@@ -24,15 +24,15 @@ if (strcmp($_REQUEST['btn-login'],"Login")==0) {
 if (strcmp($_POST['btn-register'],"Register")==0) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	echo "Creating user: ".$username;
+	//echo "Creating user: ".$username;
 
-	var_dump($_POST);
+	//var_dump($_POST);
 
 	$results = $db->createUser($username,$password);
 	if ($results) {
 		$message = "User ".$username." is created";
 	}else{
-		$message = "That user already exists, pleae choose another username";
+		$message = "That user already exists, please choose another username";
 	}
 	$db->closeConnection();
 	Header("Location: index.php?m=".$message);

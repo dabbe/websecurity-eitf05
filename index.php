@@ -18,7 +18,13 @@ $db->closeConnection();
    </head>
    <body>
       <div class="top">
-      	ArtShop Deluxe
+         <?php
+         if (isset($_GET['m'])) {
+            echo htmlspecialchars($_GET['m']);
+         }else{
+            echo "ArtShop Deluxe";
+         }
+         ?>
       </div>
       <div class="wrapper">
       	<?php
