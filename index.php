@@ -70,7 +70,7 @@ $db->closeConnection();
       	      <form id="login-form" action="login.php" method="post">
                   <fieldset class="c">
                      <label for="username">Username: </label>
-                     <input type="email" name="username" required>
+                     <input type="text" name="username" required>
                      <label for="password">Password: </label>
                      <input type="password" name="password" required>
                      <div align="right">
