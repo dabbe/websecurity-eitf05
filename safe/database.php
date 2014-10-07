@@ -114,10 +114,11 @@ class Database {
 		return false;
 	}
 
-	public function changePass($user,$pass) {
+	public function changePass($user,$pass,$oldpass) {
+		$oldhash = $this->hash($oldpass);
 		$hash = $this->hash($pass);
-		$sql = "update users set password = ? where email = ?";
-		$results = $this->executeUpdate($sql,array($hash,$user));
+		$sql = "update users set password = ? where email = ? and password = ?";
+		$results = $this->executeUpdate($sql,array($hash,$user,$oldhash));
 		return $results;
 	}
 
