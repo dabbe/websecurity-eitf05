@@ -120,5 +120,17 @@ class Database {
 		$ct = hash(DEFAULT_HASH_ALG,$pt);
 		return $ct;
 	}
+
+	public function getAddress($user) {
+		$sql = "select email,street,zipcode,town from users where email = ?";
+		$results = $this->executeSingleRow($sql,array($user));
+		return $results;
+	}
+
+	public function updateAddress($user,$street,$zipcode,$town) {
+		$sql = "insert into users (email,street,zipcode,town) values(?,?,?,?) on duplicate key update street = ?, zipcode = ?, town = ?";
+		$results = $this->executeUpdate($sql,array($user,$street,$zipcode,$town,$street,$zipcode,$town));
+		return $results;
+	}
 }
 ?>

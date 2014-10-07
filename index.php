@@ -2,11 +2,17 @@
 session_start();
 $username = $_SESSION['username'];
 require_once("shoppingcart.php");
+require_once("database.php");
 $shopping_cart = new Shopping_Cart();
+$db = new Database();
+$db->openConnection();
+$address = $db->getAddress($username);
+$db->closeConnection();
 ?>
 
 <HTML>
    <head>
+      <meta charset="utf8">
       <title>ArtShop Deluxe 2016</title>
       <link rel="stylesheet" href="style.css"/>
    </head>
@@ -17,6 +23,38 @@ $shopping_cart = new Shopping_Cart();
       <div class="wrapper">
       	<?php
       		if (isset($username)) {
+               $street = $address['street'];
+               $zipcode = $address['zipcode'];
+               $town = $address['town'];
+               
+               if (strlen($street)==0 || strlen($zipcode)==0 || strlen($town)==0) {
+                  echo "<h2>You must submit your address information</h2>";
+                  ?>
+                  <form id="form-update-address" action="address.php" method="post">
+                     <label>
+                        <span>Street</span><br>
+                        <input type="text" name="txt-street">
+                     </label>
+                     <label>
+                        <br><span>Zipcode</span><br>
+                        <input type="text" name="txt-zipcode">
+                     </label>
+                     <label>
+                        <br><span>Town</span><br>
+                        <input type="text" name="txt-town">
+                     </label>
+                     <label>
+                        <br><span>&nbsp;</span>
+                        <input type="submit" name="btn-update" value="Submit">
+                     </label>
+                  </form>
+                  <?php
+                  echo "<br>";
+               }else{
+                  echo "<strong>Address</strong><br>".$address['street'] . "<br>";
+                  echo $address['zipcode'] . " " . $address['town'] . "<br>";
+               }
+
       			echo "<h1>V&#xE4lkommen ".$username."!</h1>";
                echo '<br><br><a href="paymentinfo.php">Edit payment information</a>';
                echo '<br><br><a href="change_pass.php">Change account password</a>';
