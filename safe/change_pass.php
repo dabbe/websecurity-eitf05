@@ -9,6 +9,8 @@ if (!isset($username)) {
 	die();
 }
 
+require_once('csrf.php');
+
 ?>
 <HTML>
    <head>
@@ -23,6 +25,14 @@ if (!isset($username)) {
 <?php
 
 if (isset($_REQUEST['btn-change'])) {
+	$rval = Csrf::check("change",$_POST);
+	if (!$rval) {
+		session_unset();
+		session_destroy();
+		Header("Location: index.php");
+		die();
+	}
+
 	$old = $_POST['old-password'];
 	$new = $_POST['new-password'];
 	$new_repeat = $_POST['repeat-password'];
@@ -32,7 +42,7 @@ if (isset($_REQUEST['btn-change'])) {
 		$db->openConnection();
 		$rval = $db->changePass($username,$new,$old);
 		$db->closeConnection();
-		if ($val) {
+		if ($rval) {
 			$msg = "Password for " . $username . " is changed!";
 		}else{
 			$msg = "Could not change password";
@@ -47,10 +57,12 @@ if (isset($_REQUEST['btn-change'])) {
 <link rel="stylesheet" href="style.css">
 
 <?php
+$token = Csrf::generate("change");
 echo "<h1>".$msg."</h1>";
 ?>
 
 <form id="form-change-password" action="change_pass.php" method="post">
+<input type="hidden" value="<?php echo $token;?>" name="change">
 	<label>
 		<span>Current password</span>
 		<input type="password" name="old-password" required>

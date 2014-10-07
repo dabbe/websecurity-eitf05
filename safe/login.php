@@ -10,10 +10,12 @@ if (strcmp($_POST['btn-login'],"Login")==0) {
 	$password = $_POST['password'];
 	$login = $db->isValidLogin($username,$password);
 	if ($login) {
-		$_SESSION['username'] = $login[0]['email'];
+		$_SESSION['username'] = $db->getDisplayName($username);
+	}else{
+		$msg = "Wrong username/password";
 	}
 	$db->closeConnection();
-	Header("Location: index.php");
+	Header("Location: index.php?m=".$msg);
 	die();
 }
 

@@ -12,7 +12,7 @@ $db->closeConnection();
 <!DOCTYPE html>
 <HTML>
    <head>
-      <meta charset="utf8">
+      <meta charset="latin8">
       <title>ArtShop Deluxe 2016</title>
       <link rel="stylesheet" href="style.css"/>
    </head>

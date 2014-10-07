@@ -104,21 +104,31 @@ class Database {
 		return $results;
 	}
 
+	public function getDisplayName($username) {
+		$sql = "select email from users where email = ?";
+		$results = $this->executeSingleRow($sql,array($username));
+		return $results['email'];
+	}
+
 	public function isValidLogin($username,$password) {
 		$hash = $this->hash($password);
 		$sql = "select email,password from users where email = ? and password = ?";
-		$results = $this->executeQuery($sql,array($username,$password));
+		$results = $this->executeQuery($sql,array($username,$hash));
 		if (count($results)==1) {
-			return $results;
+			return true;
 		}
 		return false;
 	}
 
 	public function changePass($user,$pass,$oldpass) {
-		$oldhash = $this->hash($oldpass);
+		$eval = $this->isValidLogin($user,$oldpass);
+		if (!$eval) {
+			return false;
+		}
+
 		$hash = $this->hash($pass);
-		$sql = "update users set password = ? where email = ? and password = ?";
-		$results = $this->executeUpdate($sql,array($hash,$user,$oldhash));
+		$sql = "update users set password = ? where email = ?";
+		$results = $this->executeUpdate($sql,array($hash,$user));
 		return $results;
 	}
 
