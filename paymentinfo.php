@@ -44,7 +44,7 @@ $expiration = date('Y-m-d', strtotime($row['credit_card_expiration']))
             <input type="submit" id="submitpaymentinfo" value="Submit payment information">
         </form>
 
-        <a href="http://dev.hawry.net/eitf05/index.php">Back</a>
+        <a href="index.php">Back</a>
 	</div>
 	</body>
 </HTML>
