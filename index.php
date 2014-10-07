@@ -91,25 +91,25 @@ $db->closeConnection();
          <div class="entry">
             <figure>
                <a href="onclick.php?id=3"><img src="gallerypic3.jpg" alt="Nyctocalos" /></a>
-               <figcaption>Nyctocalos</figcaption>
+               <figcaption>AK-47 250 000 kr</figcaption>
             </figure>
          </div>
          <div class="entry">
             <figure>
                <a href="onclick.php?id=4"><img src="gallerypic4.jpg" alt="Polianthes" /></a>
-               <figcaption>Polianthes</figcaption>
+               <figcaption>Tändstickor £4000</figcaption>
             </figure>
          </div>
          <div class="entry">
             <figure>
                <a href="onclick.php?id=5"><img src="gallerypic5.jpg" alt="Ficus" /></a>
-               <figcaption>Ficus</figcaption>
+               <figcaption>Ingenting 150 kr</figcaption>
             </figure>
          </div>
          <div class="entry">
             <figure>
                <a href="onclick.php?id=6"><img src="gallerypic6.jpg" alt="Dendrobium" /></a>
-               <figcaption>Dendrobium</figcaption>
+               <figcaption>Banan 650/600 kr (exkl./inkl. man)</figcaption>
             </figure>
          </div>
       </div>

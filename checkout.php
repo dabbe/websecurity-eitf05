@@ -27,7 +27,7 @@ $list = $shopping_cart->getList();
      	$list = $shopping_cart->getList();
      	echo 'Din kundkorg innehåller dessa föremål:';
      	foreach($list as &$value){
-     		echo '<br>Tavla #' .$value;
+     		echo '<br>Föremål #' .$value;
      	}
      	?>
      	<form id="buy-form" action="buy.php" method="post">
