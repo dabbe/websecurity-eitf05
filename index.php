@@ -9,7 +9,7 @@ $db->openConnection();
 $address = $db->getAddress($username);
 $db->closeConnection();
 ?>
-
+<!DOCTYPE html>
 <HTML>
    <head>
       <meta charset="utf8">
@@ -64,9 +64,9 @@ $db->closeConnection();
       	      <form id="login-form" action="login.php" method="post">
                   <fieldset class="c">
                      <label for="username">Username: </label>
-                     <input type="text" name="username">
+                     <input type="email" name="username" required>
                      <label for="password">Password: </label>
-                     <input type="password" name="password">
+                     <input type="password" name="password" required>
                      <div align="right">
                         <input type="submit" value="Login" id="login" class="button" name="btn-login">
                         <input type="submit" value="Register" id="register" class="button" name="btn-register">
