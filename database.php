@@ -89,6 +89,16 @@ class Database {
 		return false;
 	}
 
+	public function insertPaymentInfo($email, $cardnbr, $cvc, $expiration){
+		$sql = "insert into payment_info (email, credit_card_number,credit_card_cvc, credit_card_expiration) values ('" .$cardnbr."','".$cvc."','".$expiration"')";
+		$this->executeUpdate($sql);
+	}
+
+	public function getPaymentInfo($email){
+		$sql = "select * from payment_info where email='".$email."'";
+		return $this->executeQuery($sql);
+	}
+
 	public function createUser($email,$password) {
 		if ($this->userExists($email)) {
 			return false;

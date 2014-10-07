@@ -16,7 +16,7 @@ if (!isset($user)) {
       	ArtShop Deluxe
   	</div>
   	<div align="center">
-     	<form id="payment-form" action="sendpaymentinfo.php" method="post">
+     	<form id="payment-form" action="sendpaymentinfo.php" method="post">    
      		<label for="cardnbr">Card number: </label>
      		<br>
      		<input type="text" id="cardnbr" name="input-cardnbr">
@@ -30,6 +30,7 @@ if (!isset($user)) {
             <input type="text" id="expiration"  name="input-expiration">
             <br>
             <input type="submit" id="submitpaymentinfo" value="Submit payment information">
+            ?>
         </form>
 	</div>
 	</body>
