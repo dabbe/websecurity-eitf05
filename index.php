@@ -23,7 +23,7 @@ $shopping_cart = new Shopping_Cart();
                echo '<br><a href="logout.php">Logout</a><br>';
       		}else{
       			echo '
-      	      <form id="login-form" action="test.php" method="post">
+      	      <form id="login-form" action="login.php" method="post">
                   <fieldset class="c">
                      <label for="username">Username: </label>
                      <input type="text" name="username">
