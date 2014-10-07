@@ -79,13 +79,13 @@ $db->closeConnection();
          <div class="entry">
             <figure>
                <a href="onclick.php?id=1"><img src="gallerypic1.jpg" alt="Helianthus" /></a>
-               <figcaption>Helianthus</figcaption>
+               <figcaption>Sten 20 kr</figcaption>
             </figure>
          </div>
          <div class="entry">
             <figure>
                <a href="onclick.php?id=2"><img src="gallerypic2.jpg" alt="Passiflora" /></a>
-               <figcaption>Passiflora</figcaption>
+               <figcaption>Häst 13 kr</figcaption>
             </figure>
          </div>
          <div class="entry">
