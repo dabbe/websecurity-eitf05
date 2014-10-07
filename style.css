@@ -20,7 +20,9 @@
          .top{
          	text-align: center;
          	font-size: 110px;
-         	 -webkit-text-stroke: 2px white;
+            text-stroke:2px white;
+            -moz-text-stroke:2px white;
+         	-webkit-text-stroke: 2px white;
            	margin: 0px;
 
          	padding-top: 50px;
