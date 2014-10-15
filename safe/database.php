@@ -94,6 +94,17 @@ class Database {
 		return false;
 	}
 
+	public function insertPaymentInfo($email, $cardnbr, $cvc, $expiration){
+		$sql = "insert into payment_info (email,credit_card_number, credit_card_cvc, credit_card_expiration) values(?,?,?,?) on duplicate key update credit_card_number = ?, credit_card_cvc = ?, credit_card_expiration = ?";
+		$results = $this->executeUpdate($sql,array($email,$cardnbr,$cvc,$expiration,$cardnbr,$cvc,$expiration));
+		return $results;
+	}
+
+	public function getPaymentInfo($email){
+		$sql = "select * from payment_info where email='".$email."'";
+		return $this->executeQuery($sql);
+	}
+
 	public function createUser($email,$password) {
 		if ($this->userExists($email)) {
 			return false;
