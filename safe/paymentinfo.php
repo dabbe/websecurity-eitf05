@@ -31,15 +31,15 @@ $expiration = date('Y-m-d', strtotime($row['credit_card_expiration']))
      	<form id="payment-form" action="sendpaymentinfo.php" method="post">    
      		<label for="cardnbr">Card number: </label>
      		<br>
-     		<input type="text" id="cardnbr" name="input-cardnbr" value=<?php echo '"' .$cardnbr. '"'; ?>>
+     		<input type="text" id="cardnbr" name="input-cardnbr" value="<?php echo $cardnbr; ?>">
      		<br>
             <label for="cvc">CVC: </label>
             <br>
-            <input type="text" id="cvc" name="input-cvc" value=<?php echo '"' .$cvc. '"'; ?>>
+            <input type="text" id="cvc" name="input-cvc" value="<?php echo $cvc; ?>">
             <br>
             <label for="expiration">Expiration Date: </label>
             <br>
-            <input type="date" id="expiration"  name="input-expiration" value=<?php echo '"' .$expiration. '"'; ?>>
+            <input type="date" id="expiration"  name="input-expiration" value="<?php echo $expiration; ?>">
             <br>
             <input type="submit" id="submitpaymentinfo" value="Submit payment information">
         </form>
