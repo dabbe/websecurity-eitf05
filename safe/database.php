@@ -122,11 +122,13 @@ class Database {
 	}
 
 	public function isValidLogin($username,$password) {
-		$hash = $this->hash($password);
-		$sql = "select email,password from users where email = ? and password = ?";
-		$results = $this->executeQuery($sql,array($username,$hash));
+		$sql = "select email,password from users where email = ?";
+		$results = $this->executeQuery($sql,array($username));
 		if (count($results)==1) {
-			return true;
+			if (password_verify($password,$results['password'])) {
+				return true;
+			}
+			return false;
 		}
 		return false;
 	}
@@ -144,7 +146,8 @@ class Database {
 	}
 
 	private function hash($pt) {
-		$ct = hash(DEFAULT_HASH_ALG,$pt);
+		//$ct = hash(DEFAULT_HASH_ALG,$pt);
+		$ct = password_hash($pt,PASSWORD_DEFAULT);
 		return $ct;
 	}
 
